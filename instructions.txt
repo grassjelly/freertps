@@ -1,0 +1,13 @@
+
+1. Omit "stm32f7_disco-metal", "stm3240g_eval-metal", "samv71_xplained_ultra-metal" in freertps/Makefile
+2. Add "blinker" to SYSTEM_APPS in freertps/systems/stm32f4_disco-metal
+3. Copy blinker folder to freerpts/apps and change #include "stm32f4xx.h" to #include "stm32f407xx.h"
+4. Add SystemInit(), and SystemInitError() in freertps/systems/metal_common/system.c and change #include "stm32f4xx.h" to #include "cmsis/stm32f407xx.h"
+5. Add "include_directories(${PROJECT_SOURCE_DIR}/systems/stm32_common)" in freertps/systems/metal_common/CMakeLists.txt
+6. Append:
+
+  __IO uint16_t BSRRL;    /*!< GPIO port bit set/reset low register,  Address offset: 0x18      */
+  __IO uint16_t BSRRH;    /*!< GPIO port bit set/reset high register, Address offset: 0x1A      */
+
+ to GPIO_Typdef struct in freertps/systems/stm32_common/cmsis/stm32f407xx.h"
+
