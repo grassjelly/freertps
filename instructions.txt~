@@ -11,4 +11,3 @@
 
  to GPIO_Typdef struct in freertps/systems/stm32_common/cmsis/stm32f407xx.h"
 
-*blinker app based on: http://regalis.com.pl/en/arm-cortex-stm32-gnulinux/
